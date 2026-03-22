@@ -8,10 +8,12 @@ import heroBg from "@/assets/hero-bg.jpg";
 
 export default function Index() {
   const [filter, setFilter] = useState<"all" | "active" | "retired">("all");
+  const [genderFilter, setGenderFilter] = useState<"all" | "M" | "F">("all");
 
   const filtered = tennisPlayers.filter((p) => {
-    if (filter === "active") return p.currentRank > 0;
-    if (filter === "retired") return p.currentRank === 0;
+    if (filter === "active" && p.currentRank <= 0) return false;
+    if (filter === "retired" && p.currentRank > 0) return false;
+    if (genderFilter !== "all" && p.gender !== genderFilter) return false;
     return true;
   });
 
