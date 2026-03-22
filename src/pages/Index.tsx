@@ -52,6 +52,9 @@ export default function Index() {
             <p className="text-muted-foreground text-base md:text-lg max-w-md mx-auto">
               Statistiques complètes des joueurs de tennis professionnels
             </p>
+            <p className="text-muted-foreground/50 text-xs mt-2">
+              Created by <span className="text-primary/70 font-semibold">Maxime Gonthier</span>
+            </p>
           </motion.div>
 
           <motion.div
