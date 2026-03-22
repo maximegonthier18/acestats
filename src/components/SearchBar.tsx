@@ -71,7 +71,7 @@ export default function SearchBar() {
                     {player.name}
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    {player.country} · {player.currentRank > 0 ? `ATP #${player.currentRank}` : "Retraité"}
+                    {player.country} · {player.currentRank > 0 ? `${player.gender === "F" ? "WTA" : "ATP"} #${player.currentRank}` : player.gender === "F" ? "Retraitée" : "Retraité"}
                   </p>
                 </div>
                 <div className="text-right">
