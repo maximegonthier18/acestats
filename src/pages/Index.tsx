@@ -94,6 +94,26 @@ export default function Index() {
               {label}
             </button>
           ))}
+
+          <div className="w-px h-6 bg-border/50 mx-1 self-center" />
+
+          {([
+            ["all", "Tous"],
+            ["M", "Hommes"],
+            ["F", "Femmes"],
+          ] as const).map(([key, label]) => (
+            <button
+              key={`g-${key}`}
+              onClick={() => setGenderFilter(key as "all" | "M" | "F")}
+              className={`px-5 py-2 rounded-full text-sm font-display font-semibold transition-all duration-300 ${
+                genderFilter === key
+                  ? "bg-accent text-accent-foreground shadow-lg shadow-accent/25"
+                  : "bg-secondary/60 text-muted-foreground hover:text-foreground hover:bg-secondary"
+              }`}
+            >
+              {label}
+            </button>
+          ))}
         </motion.div>
 
         {/* Player Grid */}

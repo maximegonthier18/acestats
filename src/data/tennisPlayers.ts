@@ -27,6 +27,7 @@ export interface TennisPlayer {
   weight: string;
   hand: string;
   backhand: string;
+  gender: "M" | "F";
   currentRank: number;
   highestRank: number;
   careerTitles: number;
