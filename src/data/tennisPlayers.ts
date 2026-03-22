@@ -2916,6 +2916,7 @@ export const tennisPlayers: TennisPlayer[] = [
     backhand: "Revers à deux mains",
     currentRank: 47,
     highestRank: 29,
+    imageUrl: "",
     careerTitles: 3,
     grandSlams: 0,
     winRate: 67.8,
