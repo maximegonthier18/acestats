@@ -8,10 +8,12 @@ import heroBg from "@/assets/hero-bg.jpg";
 
 export default function Index() {
   const [filter, setFilter] = useState<"all" | "active" | "retired">("all");
+  const [genderFilter, setGenderFilter] = useState<"all" | "M" | "F">("all");
 
   const filtered = tennisPlayers.filter((p) => {
-    if (filter === "active") return p.currentRank > 0;
-    if (filter === "retired") return p.currentRank === 0;
+    if (filter === "active" && p.currentRank <= 0) return false;
+    if (filter === "retired" && p.currentRank > 0) return false;
+    if (genderFilter !== "all" && p.gender !== genderFilter) return false;
     return true;
   });
 
@@ -86,6 +88,26 @@ export default function Index() {
               className={`px-5 py-2 rounded-full text-sm font-display font-semibold transition-all duration-300 ${
                 filter === key
                   ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
+                  : "bg-secondary/60 text-muted-foreground hover:text-foreground hover:bg-secondary"
+              }`}
+            >
+              {label}
+            </button>
+          ))}
+
+          <div className="w-px h-6 bg-border/50 mx-1 self-center" />
+
+          {([
+            ["all", "Tous"],
+            ["M", "Hommes"],
+            ["F", "Femmes"],
+          ] as const).map(([key, label]) => (
+            <button
+              key={`g-${key}`}
+              onClick={() => setGenderFilter(key as "all" | "M" | "F")}
+              className={`px-5 py-2 rounded-full text-sm font-display font-semibold transition-all duration-300 ${
+                genderFilter === key
+                  ? "bg-accent text-accent-foreground shadow-lg shadow-accent/25"
                   : "bg-secondary/60 text-muted-foreground hover:text-foreground hover:bg-secondary"
               }`}
             >
