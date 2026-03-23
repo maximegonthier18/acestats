@@ -42,7 +42,7 @@ export interface TennisPlayer {
   surfaceStats: { surface: string; wins: number; losses: number }[];
 }
 
-export const tennisPlayers: TennisPlayer[] = [
+const rawTennisPlayers: Array<TennisPlayer | undefined> = [
   // ==================== BIG 3 + CURRENT TOP ====================
   {
     id: "novak-djokovic",
@@ -5318,6 +5318,23 @@ export const tennisPlayers: TennisPlayer[] = [
     surfaceStats: [{ surface: "Dur", wins: 140, losses: 110 }, { surface: "Terre battue", wins: 50, losses: 42 }, { surface: "Gazon", wins: 40, losses: 35 }],
   },
   ];
+
+function isValidPlayer(player: TennisPlayer | undefined): player is TennisPlayer {
+  return Boolean(player?.id && player?.firstName && player?.lastName && (player.gender === "M" || player.gender === "F"));
+}
+
+function dedupePlayers(players: Array<TennisPlayer | undefined>): TennisPlayer[] {
+  const uniquePlayers = new Map<string, TennisPlayer>();
+
+  for (const player of players) {
+    if (!isValidPlayer(player) || uniquePlayers.has(player.id)) continue;
+    uniquePlayers.set(player.id, player);
+  }
+
+  return Array.from(uniquePlayers.values());
+}
+
+export const tennisPlayers: TennisPlayer[] = dedupePlayers(rawTennisPlayers);
 
 export function searchPlayers(query: string): TennisPlayer[] {
   const q = query.toLowerCase().trim();
