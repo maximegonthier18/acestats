@@ -2985,7 +2985,7 @@ const rawTennisPlayers: Array<TennisPlayer | undefined> = [
     birthDate: "2006-09-23",
     age: 19,
     height: "1m75",
-    weight: "60 kg",
+    weight: "59 kg",
     hand: "Droitier",
     backhand: "Revers à deux mains",
     gender: "M",
