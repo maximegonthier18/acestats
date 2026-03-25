@@ -2984,7 +2984,7 @@ const rawTennisPlayers: Array<TennisPlayer | undefined> = [
     countryCode: "🇫🇷",
     birthDate: "2006-09-23",
     age: 19,
-    height: "1m75",
+    height: "1m74",
     weight: "60 kg",
     hand: "Droitier",
     backhand: "Revers à deux mains",
