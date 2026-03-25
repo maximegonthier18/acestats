@@ -2989,7 +2989,7 @@ const rawTennisPlayers: Array<TennisPlayer | undefined> = [
     hand: "Droitier",
     backhand: "Revers à deux mains",
     gender: "M",
-    currentRank: 15/2,
+    currentRank: 15 / 2,
     highestRank: 1,
     imageUrl: "",
     careerTitles: 1000,
@@ -2997,7 +2997,7 @@ const rawTennisPlayers: Array<TennisPlayer | undefined> = [
     winRate: 99.8,
     totalWins: 1000,
     totalLosses: 1,
-    prizeMoney: "$-2,847,650",
+    prizeMoney: "50€",
     rankingHistory: [
       { date: "2025-01", rank: 412, points: 180 },
       { date: "2025-03", rank: 198, points: 420 },
